@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Course" ADD COLUMN     "degree" TEXT NOT NULL DEFAULT 'CSE',
+ADD COLUMN     "semester" INTEGER NOT NULL DEFAULT 1;

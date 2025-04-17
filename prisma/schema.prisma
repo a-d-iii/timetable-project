@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Course {
+  id         Int         @id @default(autoincrement())
+  code       String      @unique
+  name       String
+  degree     String      @default("CSE")
+  semester   Int         @default(1)
+  slotCombos SlotCombo[]
+}
+
+model SlotCombo {
+  id       Int    @id @default(autoincrement())
+  slotCode String
+  venue    String
+  faculty  String
+  courseId Int
+  course   Course @relation(fields: [courseId], references: [id])
+}
+
+model Timetable {
+  id       Int      @id @default(autoincrement())
+  semester Int
+  degree   String
+  allSlots String[]
+  grid     Json
+}
+
+model TestTimetables {
+  id       Int      @id @default(autoincrement())
+  semester Int
+  degree   String
+  allSlots String[]
+  grid     Json
+}
