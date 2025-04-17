@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS=--max_old_space_size=12288 next dev",
+    "dev": "cross-env NODE_OPTIONS=--max_old_space_size=12288 next dev -H 0.0.0.0 -p 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/client": "^6.5.0",
+    "@prisma/client": "^6.6.0",
+    "dotenv": "^16.5.0",
     "framer-motion": "^12.6.3",
     "next": "15.2.4",
     "prisma": "^6.5.0",
